@@ -1,6 +1,6 @@
 import { useMemo, useRef, useState } from "react";
 import { drumData, kitName } from "./config";
-import { DrumPad, Toggle, Volume, Display } from "./components";
+import { DrumPad, Toggle, Volume, Display, Credit } from "./components";
 
 export default function App() {
 	const [power, setPower] = useState(true);
@@ -61,7 +61,7 @@ export default function App() {
 	};
 
 	return (
-		<div className="h-full min-h-screen py-12 flex flex-col items-center justify-center relative bg-[#8D8D8D] text-black font-bold">
+		<div className="h-full min-h-screen py-12 flex flex-col items-center justify-center gap-4 relative text-black font-bold">
 			<div className="w-11/12 sm:w-1/2 max-w-[1000px] grid grid-cols-[60%_40%] bg-[#B3B3B3] border-4 border-[#FFA501] p-4">
 				<div className="h-full grid grid-rows-[1fr_1fr_1fr] grid-cols-[1fr_1fr_1fr] place-items-center gap-2 sm:gap-4">
 					{drumData.map((item, index) => {
@@ -85,6 +85,7 @@ export default function App() {
 					<Toggle name="Bank" handleClick={handleBank} toggle={bank} />
 				</div>
 			</div>
+			<Credit />
 		</div>
 	);
 }
